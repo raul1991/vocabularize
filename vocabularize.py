@@ -27,14 +27,13 @@ def quiz():
 
 
 def display(word):
-    print(word['name'])
+    print(word['name'].upper())
     print(word['synonyms'])
     print(word['sentence'])
 
 
 def notify(word):
-    subprocess.Popen(['notify-send', '-a' , 'Recap', '--urgency=critical' , word['name'] +"\r\n", str(word['synonyms']) + "\r\n" + str(word['sentence'])])
-    time.sleep(5)
+    subprocess.Popen(['notify-send', '-a' , 'vocabularize', '--urgency=critical' , word['name'].upper() +"\r\n", str(word['synonyms']) + "\r\n" + str(word['sentence'])])
 
 
 loadWords()
