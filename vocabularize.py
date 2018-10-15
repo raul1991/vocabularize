@@ -64,7 +64,7 @@ def play_quiz():
 
 
 load_words()
-should_add_word = (sys.argv[1] == '--add_words')
+should_add_word = (len(sys.argv) > 1 and sys.argv[1] == '--add_words')
 if should_add_word:
     more = 'y'
     word_file = open('words.txt', 'a+')
@@ -73,7 +73,7 @@ if should_add_word:
             print("Word already exists")
             more = raw_input('Do you want to add more words (y/n) ?')
 
-should_play_quiz = str(raw_input('Want to play a quiz')).strip().lower()
+should_play_quiz = str(raw_input('Want to play a quiz (y/n) ? : ')).strip().lower()
 if should_play_quiz == 'y' or should_play_quiz == 'yes':
     load_words()
     play_quiz()
